@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Now</title>
+    <link rel="stylesheet" type="text/css" href="lStyles.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <header class="header">
+<script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data =>{
+        document.querySelector('header')
+        .innerHTML = data;
+    });
+</script>
+<div class="header-cta">
+    <a href="signup.html" class="cta-button">Get Started</a>
+</div>
+</div>
+    </header>
+    <main> <form id="loginForm">
+        <main class="login-container">
+            <div class="login-card">
+                <h1>Login</h1>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn" href="category.html">Login</button>
+                </form>
+                <div class="social-login">
+                    <p>Or login with:</p>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn facebook">Facebook</a>
+                        <a href="#" class="social-btn google">Google</a>
+                        <a href="#" class="social-btn twitter">Twitter</a>
+                    </div>
+                </div>
+                <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+    </main> </form></main>
+    <footer>
+        <script>
+            fetch('footer.html')
+            .then(response => response.text())
+            .then(data =>{
+                document.querySelector('footer')
+                .innerHTML = data;
+            });
+        </script>
+    </footer>
+</body>
+</html>

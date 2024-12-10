@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" type="text/css" href="lStyles.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <header class="header">
+<script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data =>{
+        document.querySelector('header')
+        .innerHTML = data;
+    });
+</script>
+</div>
+</div>
+    </header>
+    <main>
+        <form id="registrationForm">
+        <main class="login-container">
+            <div class="login-card">
+                <h2>Create An Account</h2>
+                <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+    
+                <div class="social-login">
+                    <p>Or login with:</p>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn facebook">Facebook</a>
+                        <a href="#" class="social-btn google">Google</a>
+                        <a href="#" class="social-btn twitter">Twitter</a>
+                    </div>
+                </div>
+                
+            </div></main> 
+        <!-- login.html -->
+<form id="loginForm">
+    <label for="email">Email:</label>
+    <input type="email" id="loginEmail" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="loginPassword" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<script src="login.js"></script>
+</form>
+    </main>
+    <footer>
+        <script>
+            fetch('footer.html')
+            .then(response => response.text())
+            .then(data =>{
+                document.querySelector('footer')
+                .innerHTML = data;
+            });
+
+            // registration.js
+
+const registrationForm = document.getElementById("registrationForm");
+
+registrationForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent page reload
+
+    // Get form input values
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Simulate saving user data (mock demo account) to localStorage
+    const user = { username, email, password };
+
+    // Store user data in localStorage (it stays in the browser until deleted)
+    localStorage.setItem("user", JSON.stringify(user));
+
+    // Simulate redirection to category page
+    alert("Account created! Redirecting to category page...");
+    window.location.href = "category.html"; // Change this to your category page URL
+});
+
+        </script>
+    </footer>
+</body>
+</html>

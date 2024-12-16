@@ -21,44 +21,51 @@
 </div>
     </header>
     <main>
-        <form id="registrationForm">
-        <main class="login-container">
-            <div class="login-card">
-                <h2>Create An Account</h2>
-                <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
+       
+        <div class="container">
+            <div class="signup-card">
+                <h2>Signup</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+        
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" id="email" required>
                     </div>
+        
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <input type="password" id="password" required>
                     </div>
-                    <button type="submit" class="btn">Sign Up</button>
-    
-                <div class="social-login">
-                    <p>Or login with:</p>
-                    <div class="social-buttons">
-                        <a href="#" class="social-btn facebook">Facebook</a>
-                        <a href="#" class="social-btn google">Google</a>
-                        <a href="#" class="social-btn twitter">Twitter</a>
+        
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
                     </div>
-                </div>
-                
-            </div></main> 
-        <!-- login.html -->
-<form id="loginForm">
-    <label for="email">Email:</label>
-    <input type="email" id="loginEmail" required>
-
-    <label for="password">Password:</label>
-    <input type="password" id="loginPassword" required>
-
-    <button type="submit">Login</button>
-</form>
-
-<script src="login.js"></script>
-</form>
+        
+                    <div class="captcha-box">
+                        <div class="captcha-text" id="captchaText">3x5Y2</div>
+                        <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required>
+                        <button type="button" onclick="refreshCaptcha()">Refresh CAPTCHA</button>
+                    </div>
+        
+                    <div class="terms">
+                        <label>
+                            <input type="checkbox" id="termsCheckbox" required>
+                            I agree to the <a href="tc.html" target="_blank">Terms and Conditions</a>
+                        </label>
+                    </div>
+        
+                    <button type="submit" class="btn-submit">Signup</button>
+        
+                    <div class="error-msg" id="errorMsg"></div>
+                </form>
+            </div>
+        </div>
+        
     </main>
     <footer>
         <script>
@@ -69,27 +76,76 @@
                 .innerHTML = data;
             });
 
-            // registration.js
 
-const registrationForm = document.getElementById("registrationForm");
+            document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const captchaInput = document.getElementById("captchaInput").value;
+      const termsChecked = document.getElementById("termsCheckbox").checked;
+      const errorMsg = document.getElementById("errorMsg");
+      
+      errorMsg.textContent = " ";
 
-registrationForm.addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent page reload
+      if (captchaInput !== "3x5Y2") {
+        errorMsg.textContent = "Invalid CAPTCHA!";
+        return;
+      }
 
-    // Get form input values
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+      if (password !== confirmPassword) {
+        errorMsg.textContent = "Passwords do not match!";
+        return;
+      }
 
-    // Simulate saving user data (mock demo account) to localStorage
-    const user = { username, email, password };
+      if (!termsChecked) {
+        errorMsg.textContent = "You must accept the terms and conditions.";
+        return;
+      }
 
-    // Store user data in localStorage (it stays in the browser until deleted)
-    localStorage.setItem("user", JSON.stringify(user));
+      window.location.href = "register.html";
+    });
 
-    // Simulate redirection to category page
-    alert("Account created! Redirecting to category page...");
-    window.location.href = "category.html"; // Change this to your category page URL
+
+function generateCaptcha(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let captcha = '';
+    
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        captcha += characters[randomIndex];
+    }
+    
+    return captcha;
+}
+
+function refreshCaptcha() {
+    const captchaText = generateCaptcha(5); 
+    document.getElementById('captchaText').textContent = captchaText;
+}
+
+
+function validateCaptcha() {
+    const captchaInput = document.getElementById('captchaInput').value;
+    const captchaText = document.getElementById('captchaText').textContent;
+
+    if (captchaInput === captchaText) {
+        alert("CAPTCHA Verified!");
+        return true;
+    } else {
+        alert("Incorrect CAPTCHA. Please try again.");
+        return false;
+    }
+}
+window.onload = function() {
+    refreshCaptcha();
+}
+
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    if (!validateCaptcha()) {
+        event.preventDefault(); 
+    }
 });
 
         </script>

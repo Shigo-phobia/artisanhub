@@ -17,10 +17,39 @@
         .innerHTML = data;
     });
 </script>
-    </header>
-    <div id="sidebar"></div>
-    <main>
+    </header><main>
+        <div id="sidebar"></div>
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Big Picture With Tag Line</h1>
+            </div>
+        </section>
 
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service-item">
+                <div class="service-description">
+                    <h3>Connecting Skilled Artisan With Their Potential Client</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, perferendis quo repudiandae sapiente alias non pariatur fuga.</p>
+                </div>
+                <div class="service-image"></div>
+            </div>
+            <div class="service-item">
+                <div class="service-image"></div>
+                <div class="service-description">
+                    <h3>Seamless Booking</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, perferendis quo repudiandae sapiente alias non pariatur fuga.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-description">
+                    <h3>Secure Payment And Transaction</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, perferendis quo repudiandae sapiente alias non pariatur fuga.</p>
+                </div>
+                <div class="service-image"></div>
+            </div>
+        </section>
     </main>
     <footer>
         <script>
@@ -30,7 +59,8 @@
                 document.querySelector('footer')
                 .innerHTML = data;
             });
-            if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+
+    if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
         fetch('sidebar.html')
             .then(response => response.text())
             .then(data => {
@@ -43,6 +73,8 @@
     sidebar.classList.toggle('show'); //
 };
 </script>
+
+        </script>
     </footer>
 </body>
 </html>

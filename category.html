@@ -7,138 +7,145 @@
     <link rel="stylesheet" type="text/css" href="Styles.css">
     <script type="text/javascript" src="index.js"></script>
 </head>
-    <body>
-        <header class="header">
+<body>
+    <header class="header">
+<script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data =>{
+        document.querySelector('header')
+        .innerHTML = data;
+    });
+</script>
+
+    </header>
+    <main>
+        <div id="sidebar"></div>
+    <main class="category-page">
+        <section class="category-container">
+            <div class="category-card">
+                <img src="Images/plumber.jpg" alt="Plumbing">
+                <h3>Plumbing</h3>
+                <p>Fix leaks, install pipes, and maintenance of water systems.</p>
+                <a href="#">Explore Plumbing</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/electrician.jpg" alt="Electrician">
+                <h3>Electrician</h3>
+                <p>Electrical installations, repairs, and maintenance.</p>
+                <a href="#">Explore Electrician</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/carpenter.jpg" alt="Carpentry">
+                <h3>Carpentry</h3>
+                <p>Custom woodwork, furniture, and repairs.</p>
+                <a href="#">Explore Carpentry</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/mason.jpg" alt="Masonry">
+                <h3>Masonry</h3>
+                <p>Specializes in working with brick, Stone and concrete for building.</p>
+                <a href="#">Explore Masonry</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/welder.jpg" alt="Welder">
+                <h3>Welder</h3>
+                <p>Create tools for construction and manufacturing with metals.</p>
+                <a href="#">Explore Welder</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/cleaner.jpg" alt="cleaner">
+                <h3>House Cleaner</h3>
+                <p>For home cleaning services, including routine maintenance.</p>
+                <a href="#">Explore House Cleaner</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/tailor.jpg" alt="Tailor">
+                <h3>Tailor</h3>
+                <p>Creates, alters, and repairs clothing and garments.</p>
+                <a href="#">Explore Tailor</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/mechanic.jpg" alt="mechanic">
+                <h3>Mobile Mechanic</h3>
+                <p>For Car repairs and maintenance at the customer's location</p>
+                <a href="#">Explore Mobile Mechanic</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/chef.jpg" alt="chef">
+                <h3>Chef/Caterer</h3>
+                <p>For cooking or catering services for events or home delivery.</p>
+                <a href="#">Explore Chef/Caterer</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/makeup.jpg" alt="makeup">
+                <h3>Makeup Artist</h3>
+                <p>For Makeup services for events, photoshoots or daily needs.</p>
+                <a href="#">Explore Barber</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/gardener.jpg" alt="Gardener">
+                <h3>Gardener/Landscaper</h3>
+                <p>For Lawn care, garden maintenance, or Landscaping at home.</p>
+                <a href="#">Explore Gardener/Landscaper</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/painter.jpg" alt="Painter">
+                <h3>Painter</h3>
+                <p>For Painting walls, furniture, or decorative items at home.</p>
+                <a href="#">Explore Painter</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/trainer.jpg" alt="Personal Trainer">
+                <h3>Personal Trainer</h3>
+                <p>For fitness sessions conducted at home or virtually.</p>
+                <a href="#">Explore Personal Trainer</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/interior.jpg" alt="Interior Design">
+                <h3>Interior Design</h3>
+                <p>For consultation and home design services, including decor selection.</p>
+                <a href="#">Explore Interior Design</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/groomer.jpg" alt="Dog Groomer">
+                <h3>Groomer</h3>
+                <p>For mobile grooming services for pets at home.</p>
+                <a href="#">Explore Dog Groomer</a>
+            </div>
+            <div class="category-card">
+                <img src="Images/handyman.jpg" alt="Handyman">
+                <h3>Handyman</h3>
+                <p>For a variety of home repair and improvement services.</p>
+                <a href="#">Explore Handyman</a>
+            </div>
+        </section>
+
+</main>
+<footer>
     <script>
-        fetch('header.html')
+        fetch('footer.html')
         .then(response => response.text())
         .then(data =>{
-            document.querySelector('header')
+            document.querySelector('footer')
             .innerHTML = data;
         });
+
+if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+    fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+};
+function toggleSidebar() {
+const sidebar = document.querySelector('.sidebar');
+sidebar.classList.toggle('show'); //
+};
+</script>
+
     </script>
-        </header>
-        <main class="category-page">
-            <section class="category-container">
-                <div class="category-card">
-                    <img src="Images/plumber.jpg" alt="Plumbing">
-                    <h3>Plumbing</h3>
-                    <p>Fix leaks, install pipes, and maintenance of water systems.</p>
-                    <a href="#">Explore Plumbing</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/electrician.jpg" alt="Electrician">
-                    <h3>Electrician</h3>
-                    <p>Electrical installations, repairs, and maintenance.</p>
-                    <a href="#">Explore Electrician</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/carpenter.jpg" alt="Carpentry">
-                    <h3>Carpentry</h3>
-                    <p>Custom woodwork, furniture, and repairs.</p>
-                    <a href="#">Explore Carpentry</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/mason.jpg" alt="Masonry">
-                    <h3>Masonry</h3>
-                    <p>Specializes in working with brick, Stone and concrete for building.</p>
-                    <a href="#">Explore Masonry</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/welder.jpg" alt="Welder">
-                    <h3>Welder</h3>
-                    <p>Create tools for construction and manufacturing with metals.</p>
-                    <a href="#">Explore Welder</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/cleaner.jpg" alt="cleaner">
-                    <h3>House Cleaner</h3>
-                    <p>For home cleaning services, including routine maintenance.</p>
-                    <a href="#">Explore House Cleaner</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/tailor.jpg" alt="Tailor">
-                    <h3>Tailor</h3>
-                    <p>Creates, alters, and repairs clothing and garments.</p>
-                    <a href="#">Explore Tailor</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/mechanic.jpg" alt="mechanic">
-                    <h3>Mobile Mechanic</h3>
-                    <p>For Car repairs and maintenance at the customer's location</p>
-                    <a href="#">Explore Mobile Mechanic</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/chef.jpg" alt="chef">
-                    <h3>Chef/Caterer</h3>
-                    <p>For cooking or catering services for events or home delivery.</p>
-                    <a href="#">Explore Chef/Caterer</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/makeup.jpg" alt="makeup">
-                    <h3>Makeup Artist</h3>
-                    <p>For Makeup services for events, photoshoots or daily needs.</p>
-                    <a href="#">Explore Barber</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/gardener.jpg" alt="Gardener">
-                    <h3>Gardener/Landscaper</h3>
-                    <p>For Lawn care, garden maintenance, or Landscaping at home.</p>
-                    <a href="#">Explore Gardener/Landscaper</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/painter.jpg" alt="Painter">
-                    <h3>Painter</h3>
-                    <p>For Painting walls, furniture, or decorative items at home.</p>
-                    <a href="#">Explore Painter</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/trainer.jpg" alt="Personal Trainer">
-                    <h3>Personal Trainer</h3>
-                    <p>For fitness sessions conducted at home or virtually.</p>
-                    <a href="#">Explore Personal Trainer</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/interior.jpg" alt="Interior Design">
-                    <h3>Interior Design</h3>
-                    <p>For consultation and home design services, including decor selection.</p>
-                    <a href="#">Explore Interior Design</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/groomer.jpg" alt="Dog Groomer">
-                    <h3>Groomer</h3>
-                    <p>For mobile grooming services for pets at home.</p>
-                    <a href="#">Explore Dog Groomer</a>
-                </div>
-                <div class="category-card">
-                    <img src="Images/handyman.jpg" alt="Handyman">
-                    <h3>Handyman</h3>
-                    <p>For a variety of home repair and improvement services.</p>
-                    <a href="#">Explore Handyman</a>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <script>
-                fetch('footer.html')
-                .then(response => response.text())
-                .then(data =>{
-                    document.querySelector('footer')
-                    .innerHTML = data;
-                });
-                if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
-            fetch('sidebar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sidebar').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading sidebar:', error));
-        };
-        function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.classList.toggle('show'); //
-    };
-            </script>
-        </footer>
+</footer>
 </body>
 </html>

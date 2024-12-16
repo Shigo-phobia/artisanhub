@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+   <!-- <link rel="stylesheet" type="text/css" href="Styles.css"> -->
+    <style>
+         
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #0056d2;
+        }
+        .profile-info, .service-provider-info, .service-user-info {
+            margin-bottom: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .profile-info p {
+            margin: 5px 0;
+        }
+        .service-info input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        .service-info button {
+            padding: 10px 15px;
+            background-color: #0056d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .service-info button:hover {
+            background-color: #0041a8;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <script>
+            fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('header')
+                .innerHTML = data;
+            });
+        </script>
+    </header>
+    <div id="sidebar"></div>
+    <main>
+        <div class="profile-container">
+            <h2>Welcome, <span id="username">Artisan Hub</span>!</h2>
+            <div id="profileContent">
+    
+            </div>
+        </div>
+    
+        <script>
+           
+            const userCategory = 'serviceProvider'; 
+            const userName = 'Artisan Hub'; 
+            const userContact = 'john@example.com';
+            const userAddress = '1234 Street, City, Country';
+    
+        
+            const serviceProviderInfo = {
+                businessType: 'Electrician',
+                businessName: 'John’s Electric Services',
+                contactNumber: '555-1234',
+                address: '1234 Electric Ave, City, Country',
+            };
+    
+            
+            const profileContent = document.getElementById('profileContent');
+    
+          
+            if (userCategory === 'serviceProvider') {
+                profileContent.innerHTML = `
+                    <div class="profile-info">
+                        <label>Name:</label>
+                        <p>${userName}</p>
+    
+                        <label>Contact:</label>
+                        <p>${userContact}</p>
+    
+                        <label>Address:</label>
+                        <p>${userAddress}</p>
+                    </div>
+                    
+                    <div class="service-provider-info">
+                        <h3>Business Information</h3>
+                        <label>Business Name:</label>
+                        <p>${serviceProviderInfo.businessName}</p>
+    
+                        <label>Type of Service:</label>
+                        <p>${serviceProviderInfo.businessType}</p>
+    
+                        <label>Business Contact:</label>
+                        <p>${serviceProviderInfo.contactNumber}</p>
+    
+                        <label>Business Address:</label>
+                        <p>${serviceProviderInfo.address}</p>
+                        
+                        <button>Edit Business Info</button>
+                    </div>
+                `;
+            ;
+    
+           
+            if (userCategory === 'serviceUser') {
+                profileContent.innerHTML = `
+                    <div class="profile-info">
+                        <label>Name:</label>
+                        <p>${userName}</p>
+    
+                        <label>Contact:</label>
+                        <p>${userContact}</p>
+    
+                        <label>Address:</label>
+                        <p>${userAddress}</p>
+                    </div>
+    
+                    <div class="service-user-info">
+                        <h3>Service User Information</h3>
+                        <p>As a service user, you can request various services from artisans.</p>
+                        <button>Request a Service</button>
+                    </div>
+                `;
+            }
+        </script>
+    
+    
+        </main>
+    </div>
+    <footer>
+        <script>
+            fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('footer')
+                .innerHTML = data;
+            });
+
+            if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+                fetch('sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading sidebar:', error));
+            };
+
+            function toggleSidebar() {
+                const sidebar = document.querySelector('.sidebar');
+                sidebar.classList.toggle('show');
+            };
+        </script>
+    </footer>
+</body>
+</html>

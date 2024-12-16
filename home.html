@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+   <!-- <link rel="stylesheet" type="text/css" href="Styles.css"> -->
+    <style>
+        .hero {
+    background-color: #0056d2;
+    color: white;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero .cta-button {
+    background-color: #ff7f00;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.hero .cta-button:hover {
+    background-color: #e66a00;
+}
+
+/* Artisan Category Section */
+.artisan-category {
+    padding: 2rem;
+    text-align: center;
+    background-color: #fff;
+    margin: 2rem 0;
+}
+
+.artisan-category h2 {
+    margin-bottom: 1.5rem;
+}
+
+.category-card {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 70%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-card h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Review Section */
+.reviews {
+    text-align: center;
+    padding: 2rem;
+}
+
+.reviews h2 {
+    margin-bottom: 1.5rem;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Advertisement Section */
+.advertisement {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.ad-box {
+    background-color: #ffd700;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+</style>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+    <header class="header">
+<script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data =>{
+        document.querySelector('header')
+        .innerHTML = data;
+    });
+
+    <nav>
+            <ul>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+</script>
+    </header>
+    <main>
+<a href="login.html">Login Now</a> <br>
+<a href="signup.html">Get Started</a>
+<section class="hero">
+    <div class="hero-content">
+        <h2>Welcome to ArtisanHub</h2>
+        <p>Find the best artisans for your needs. Register today and start your journey!</p>
+        <a href="register.html" class="cta-button">Register Now</a>
+    </div>
+</section>
+
+<section class="artisan-category">
+    <h2>Random Artisan Category</h2>
+    <div class="category-card">
+        <h3>Plumber</h3>
+        <p>Need a plumber? Our skilled plumbers are ready to help with any water-related issues.</p>
+    </div>
+</section>
+
+<section class="reviews">
+    <h2>Recent Reviews</h2>
+    <div class="review-card">
+        <p>"Great service! The artisan was professional and fixed the issue quickly." - Jane Doe</p>
+    </div>
+    <div class="review-card">
+        <p>"Highly recommend ArtisanHub. The platform helped me find a reliable carpenter!" - John Smith</p>
+    </div>
+</section>
+
+<section class="advertisement">
+    <h2>Advertisement</h2>
+    <div class="ad-box">
+        <p>Looking for top-notch carpenters? Visit our partner for exclusive offers!</p>
+    </div>
+</section>
+
+    </main>
+    <footer>
+        <script>
+            fetch('footer.html')
+            .then(response => response.text())
+            .then(data =>{
+                document.querySelector('footer')
+                .innerHTML = data;
+            });
+        </script>
+    </footer>
+</body>
+</html>

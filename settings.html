@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+    <header class="header">
+<script>
+    fetch('header.html')
+    .then(response => response.text())
+    .then(data =>{
+        document.querySelector('header')
+        .innerHTML = data;
+    });
+</script>
+    </header>
+    
+<main> <div id="sidebar"></div>
+<main class="main-content">
+    <section class="settings">
+        <h2>Settings</h2>
+        <div class="setting-item">
+            <label for="messageNf">Message Notification:</label>
+            <select>
+                <option value="" disabled-selected>Select</option>
+                <option>On</option>
+                <option>Off</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="bookingsNf">Bookings Notification:</label>
+            <select>
+                <option value="" disabled-selected>Select</option>
+                <option>On</option>
+                <option>Off</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="ratingNf">Review and Rating Notification:</label>
+            <select>
+                <option value="" disabled-selected>Select</option>
+                <option>On</option>
+                <option>Off</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="paymentNf">Payment Notification:</label>
+            <select>
+                <option value="" disabled-selected>Select</option>
+                <option>On</option>
+                <option>Off</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="bankNf">Bank Payment:</label>
+            <select>
+                <option value="" disabled-selected>Select</option>
+                <option>On</option>
+                <option>Off</option>
+            </select>
+        </div>
+        <div class="setting-item">
+            <label for="WithdrawalNf">Bank Withdrawal:</label>
+            <select>
+                <option value="" disabled-selected>Select</option>
+                <option>On</option>
+                <option>Off</option>
+            </select>
+        </div>
+    </section>
+</main>
+<footer>
+    <script>
+        fetch('footer.html')
+        .then(response => response.text())
+        .then(data =>{
+            document.querySelector('footer')
+            .innerHTML = data;
+        });
+
+if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+    fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
+};
+function toggleSidebar() {
+const sidebar = document.querySelector('.sidebar');
+sidebar.classList.toggle('show'); //
+};
+function loadSelectValue(selectId) {
+    const savedValue = localStorage.getItem(selectId);
+    if(savedValue){
+        document.getElementById(selectId).value = savedValue;
+    }
+}
+function saveSelectVakue(selectId){
+    const selectedValue = document.getElementById(selectId).value;
+    localStorage.setItem(selectId,selectedValue);
+}
+window.onload = function(){
+    loadSelectValue('messageNf')
+    loadSelectValue('bookingsNf')
+    loadSelectValue('ratingNf')
+    loadSelectValue('paymentNf')
+    loadSelectValue('bankNf')
+    loadSelectValue('withdrawalNf')
+}
+    document.getElementById('messageNf').addEventListener('change', function () {
+        saveSelectValue('messageNf');
+    });
+    document.getElementById('bookingsNf').addEventListener('change', function () {
+        saveSelectValue('bookingsNf');
+    });
+    document.getElementById('ratingNf').addEventListener('change', function () {
+        saveSelectValue('ratingNf');
+    });
+    document.getElementById('paymentNf').addEventListener('change', function () {
+        saveSelectValue('paymentNf');
+    });
+    document.getElementById('bankNf').addEventListener('change', function () {
+        saveSelectValue('bankNf');
+    });
+    document.getElementById('withdrawalNf').addEventListener('change', function () {
+        saveSelectValue('withdrawalNf');
+    });
+            </script>
+        </footer>
+    </body>
+</html>

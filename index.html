@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artisan Hub</title>
+    <title>ArtisanHub</title>
     <link rel="stylesheet" type="text/css" href="Styles.css">
     <script type="text/javascript" src="index.js"></script>
 </head>
@@ -18,9 +18,92 @@
     });
 </script>
     </header>
-    <main>
-<a href="login.html">Login Now</a> <br>
-<a href="signup.html">Get Started</a>
+    <div id="sidebar"></div>
+          <main>
+            <section class="announcement">
+              <div class="announcement-box">TechyJaunt Group</div>
+            </section>
+
+            <section class="premium-listing">
+              <h2>Premium Listing</h2>
+              <div class="cards">
+                <div class="card">
+                  <img src="Images/workers.png" alt="Painter">
+                  <p><b>Business Name:</b> Kinky Painting</p>
+                  <p><b>Category:</b> Painters</p>
+                  <p><b>Location:</b> Hosting</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                  <button>Visit</button>
+                </div>
+                <div class="card">
+                  <img src="Images/workers.png" alt="Contractor">
+                  <p><b>Business Name:</b> Artisan Company</p>
+                  <p><b>Category:</b> Contractors</p>
+                  <p><b>Location:</b> Lagos</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                  <button>Visit</button>
+                </div>
+                <div class="card">
+                  <img src="Images/workers.png" alt="Painter">
+                  <p><b>Business Name:</b> Shiny Paints</p>
+                  <p><b>Category:</b> Painters</p>
+                  <p><b>Location:</b> Lagos</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                  <button>Visit</button>
+                </div>
+              </div>
+            </section>
+        
+            <section class="top-rated">
+              <h2>Top Rated</h2>
+              <div class="cards">
+                <div class="card">
+                  <img src="top1.jpg" alt="Interior">
+                  <p><b>Category:</b> Interior Decoration</p>
+                  <p><b>Location:</b> Lagos</p>
+                  <p>⭐⭐⭐⭐⭐</p>
+                  <button>Visit</button>
+                </div>
+                <div class="card">
+                  <img src="top2.jpg" alt="Carpenter">
+                  <p><b>Category:</b> Carpenters</p>
+                  <p><b>Location:</b> Lagos</p>
+                  <p>⭐⭐⭐⭐</p>
+                  <button>Visit</button>
+                </div>
+                <div class="card">
+                  <img src="top3.jpg" alt="Mechanic">
+                  <p><b>Category:</b> Automobile</p>
+                  <p><b>Location:</b> Lagos</p>
+                  <p>⭐⭐⭐⭐</p>
+                  <button>Visit</button>
+                </div>
+              </div>
+            </section>
+        
+            <section class="how-it-works">
+              <h2>How it works</h2>
+              <div class="steps">
+                <div class="step">
+                  <h3>Step 1</h3>
+                  <p>Create a profile</p>
+                  <img src="Images/step1.png" alt="Step 1">
+                </div>
+                <div class="step">
+                  <h3>Step 2</h3>
+                  <p>Find an artisan</p>
+                  <img src="Images/step2.png" alt="Step 2">
+                </div>
+                <div class="step">
+                  <h3>Step 3</h3>
+                  <p>Connect with your artisan</p>
+                  <img src="Images/step3.png" alt="Step 3">
+                </div>
+              </div>
+            </section>
+          </main>
+        
+    
     </main>
     <footer>
         <script>
@@ -30,6 +113,23 @@
                 document.querySelector('footer')
                 .innerHTML = data;
             });
+
+            if (window.location.pathname !== '/login.html' && window.location.pathname !== '/signup.html') {
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
+    };
+    function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('show'); //
+};
+
+
+</script>
+
         </script>
     </footer>
 </body>

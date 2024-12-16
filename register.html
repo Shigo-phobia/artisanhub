@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ArtisanHub</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+header .logo h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Form Container */
+.registration-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 20px;
+}
+
+.registration-form h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #0056d2;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #0041a8;
+}
+
+
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ArtisanHub</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="registration-form">
+            <h2>Register</h2>
+            <form id="registerForm" action="#" method="POST">
+                <!-- Select User Type -->
+                <div class="form-group">
+                    <label for="userType">Are you a service provider or a service user?</label>
+                    <select id="userType" name="userType" onchange="toggleFormFields()">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="provider">Service Provider</option>
+                        <option value="user">Service User</option>
+                    </select>
+                </div>
+
+               
+                <div id="providerForm" class="hidden">
+                    <h3>Service Provider Details</h3>
+                    <div class="form-group">
+                        <label for="businessName">Business Name</label>
+                        <input type="text" id="businessName" name="businessName" placeholder="Enter your business name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessType">Type of Service</label>
+                        <select id="businessType" name="businessType" required>
+                            <option value="" disabled selected>Select the type of service you provide</option>
+                            <option value="plumber">Plumber</option>
+                            <option value="electrician">Electrician</option>
+                            <option value="carpenter">Carpenter</option>
+                            <option value="mason">Mason</option>
+                            <option value="painter">Painter</option>
+                            <option value="tailor">Tailor</option>
+                            <option value="chef">Chef</option>
+                            <option value="Painter">Painter</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessAddress">Business Address</label>
+                        <input type="text" id="businessAddress" name="businessAddress" placeholder="Enter business address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="tel" id="contactNumber" name="contactNumber" placeholder="Enter your contact number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceDescription">Service Description</label>
+                        <textarea id="serviceDescription" name="serviceDescription" placeholder="Describe the services you offer" required></textarea>
+                    </div>
+                </div>
+
+                
+                <div id="userForm" class="hidden">
+                    <h3>Service User Details</h3>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userAddress">Address</label>
+                        <input type="text" id="userAddress" name="userAddress" placeholder="Enter your address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userContact">Contact Number</label>
+                        <input type="tel" id="userContact" name="userContact" placeholder="Enter your contact number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceNeeded">Service Needed</label>
+                        <input type="text" id="serviceNeeded" name="serviceNeeded" placeholder="Enter the type of service you need" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function toggleFormFields() {
+    const userType = document.getElementById("userType").value;
+    const providerForm = document.getElementById("providerForm");
+    const userForm = document.getElementById("userForm");
+
+    
+    providerForm.classList.add("hidden");
+    userForm.classList.add("hidden");
+
+    if (userType === "provider") {
+        providerForm.classList.remove("hidden");
+    } else if (userType === "user") {
+        userForm.classList.remove("hidden");
+    }
+}
+
+    </script>
+</body>
+</html>
